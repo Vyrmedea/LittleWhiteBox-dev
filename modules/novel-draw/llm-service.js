@@ -351,7 +351,7 @@ export async function generateScenePlan(options) {
         nonstream: useStream ? 'false' : 'true',
         top64: b64UrlEncode(JSON.stringify(topMessages)),
         bottom64: b64UrlEncode(JSON.stringify(bottomMessages)),
-        bottomassistant: LLM_PROMPT_CONFIG.assistantPrefill,
+        //bottomassistant: LLM_PROMPT_CONFIG.assistantPrefill,
         id: 'xb_nd_scene_plan',
         ...(isSt ? {} : {
             api: llmApi.provider,
