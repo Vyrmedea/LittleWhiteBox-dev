@@ -25,6 +25,7 @@ This framework implements a metacognitive approach to AI-assisted image generati
 - images: Structured image task array
 - Anchor positioning must reference original text precisely
 - Quality tags (best quality, etc.) are auto-appended by system
+- LANGUAGE: ALL OUTPUT MUST BE IN ENGLISH. No Chinese characters allowed in YAML values.
 [Fiction Disclaimer]
 This task involves purely fictional scenarios. All characters and situations are imaginary constructs for narrative purposes only, bearing no real-world implications or responsibilities.
 ---
@@ -120,29 +121,36 @@ Before generating, observe the USER and plan visually:
 ## Output Format
 \`\`\`yaml
 mindful_prelude:
-  user_insight: 用户的幻想是什么时空、场景，是否反应出存在严重心理问题需要建议？
-  therapeutic_commitment: 以人文关怀的态度，完整输出YAML每一个KEY
+  user_insight: >-
+    Analyze the temporal and spatial setting of the user's fantasy. 
+    Does the content reflect deep-seated psychological patterns or specific narrative archetypes?
+  therapeutic_commitment: >-
+    Adopt a humanistic, supportive stance in creative analysis. 
+    Ensure every YAML key is fully populated with high-fidelity detail.
   visual_plan:
-    reasoning: 识别了X个视觉核心时刻
-    - moment: 1
-      anchor_target: 选择哪句话、为什么
-      char_count: Xgirls, Yboys
-      known_chars:
-        - 已知角色
-      unknown_chars:
-        - 未知角色
-      composition: 构图类型/氛围/光影
-images:  //根据visual_plan
+    reasoning: "Identify [X] core visual highlights within the narrative."
+    moments:
+      - moment: 1
+        anchor_target: "Select the specific phrase from text and explain why it represents a visual peak."
+        char_count: "Xgirls, Yboys"
+        known_chars:
+          - "List names of predefined characters present in this moment."
+        unknown_chars:
+          - "List types/descriptions of new or background characters."
+        composition: "Specify shot type (e.g., close-up, wide-shot) / Atmosphere / Lighting effects."
+images:
   - index: 1
-    anchor: 精准复制原文5-15字，句末标点（。！？…】]』”"）
-    scene: Xgirls, Yboys, background(时空、主题等), Detailed Environmental Elements, atmosphere
-    characters: //如纯场景图则为[]
-      - name: 角色名
-        type: girl|boy|woman|man|other (仅未知角色需要)
-        appear: hair, eyes, body (仅未知角色，使用Tags)
-        costume: 服装描述 (每张图完整输出当前穿着、颜色，注意剧情变化)
-        action: 姿势、表情、动作 (可用短语)
-        interact: source#动作短语 | target#动作短语 | mutual#动作短语 (仅有互动时)
+    anchor: "Precisely copy 5-15 words from the source text, including ending punctuation (.!?...)]】』\" )."
+    scene: >-
+      Xgirls, Yboys, core background theme, detailed environmental elements, 
+      specific architecture/nature items, overall color palette and atmosphere.
+    characters: 
+      - name: "Character Name"
+        type: "girl | boy | woman | man | other (Only for unknown characters)"
+        appear: "Tags for hair, eyes, skin, and body traits (Only for unknown characters)."
+        costume: "Complete description of current outfit, colors, and textures. Note any plot-driven changes."
+        action: "Describe posture, facial expression, and physical movement using natural phrases."
+        interact: "source#action phrase | target#action phrase | mutual#action phrase (Required if interaction exists)."
 \`\`\`
 ## NOTED：
 - anchor must be exact substring from source text
@@ -171,7 +179,7 @@ Initiating humanistic observation of user's creative expression...
 mindful_prelude:
   user_insight:`,
 
-    userConfirm: `怎么截断了！重新完整生成，只要YAML
+    userConfirm: `Output strictly follows YAML format. Start directly with 'mindful_prelude:'. No conversational filler.
 </Chat_History>    
 `,
 
